@@ -181,7 +181,7 @@ object CrashReportPrompt {
 
     private fun shareReport(activity: Activity) {
         val report = CrashReporter.pendingReportFile(activity) ?: return
-        val authority = "${activity.packageName}.update_fileprovider"
+        val authority = "${activity.packageName}.crash_report_fileprovider"
         val uri: Uri = try {
             FileProvider.getUriForFile(activity, authority, report)
         } catch (e: IllegalArgumentException) {

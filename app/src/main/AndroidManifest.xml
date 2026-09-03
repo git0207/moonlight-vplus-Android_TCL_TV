@@ -88,11 +88,6 @@
     <!-- 高采样率传感器权限 -->
     <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS" />
     
-    <!-- 安装APK权限 -->
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <uses-permission android:name="android.permission.INSTALL_PACKAGES" 
-        tools:ignore="ProtectedPermissions" />
-
     <application
         android:name=".LimelightApplication"
         android:allowBackup="true"
@@ -131,15 +126,15 @@
             android:authorities="${applicationId}.firebaseinitprovider"
             tools:node="remove" />
 
-        <!-- FileProvider for APK installation -->
+        <!-- FileProvider for sharing crash reports. -->
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.update_fileprovider"
+            android:authorities="${applicationId}.crash_report_fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/update_file_paths" />
+                android:resource="@xml/crash_report_paths" />
         </provider>
 
         <!-- FileProvider for Sunshine clipboard image sync. Inbound PNGs are written to
@@ -354,15 +349,6 @@
             android:exported="false"
             android:foregroundServiceType="mediaPlayback"
             android:stopWithTask="false" />
-
-        <!-- Download complete receiver for auto-update -->
-        <receiver
-            android:name=".utils.UpdateDownloadReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
-            </intent-filter>
-        </receiver>
 
         <receiver
             android:name=".utils.ConfigurationSyncReceiver"

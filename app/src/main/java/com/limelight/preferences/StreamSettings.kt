@@ -96,7 +96,7 @@ import com.limelight.utils.AppDialogStyler
 import com.limelight.utils.HdrCapabilityHelper
 import com.limelight.ui.ScreenCombinationModePickerView
 import com.limelight.utils.UiHelper
-import com.limelight.utils.UpdateManager
+import com.limelight.utils.GitHubProxyManager
 
 import jp.wasabeef.glide.transformations.BlurTransformation
 import jp.wasabeef.glide.transformations.ColorFilterTransformation
@@ -449,13 +449,6 @@ class StreamSettings : AppCompatActivity() {
                 val vh = categoryList?.findViewHolderForAdapterPosition(selectedCategoryIndex)
                 vh?.itemView?.requestFocus()
             }
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == UpdateManager.INSTALL_PERMISSION_REQUEST_CODE) {
-            UpdateManager.onInstallPermissionResult(this)
         }
     }
 
@@ -3748,13 +3741,6 @@ class StreamSettings : AppCompatActivity() {
                         true
                     }
 
-            // 添加检查更新选项的点击事件
-            findPreference<Preference>("check_for_updates")!!.onPreferenceClickListener =
-                    Preference.OnPreferenceClickListener {
-                        UpdateManager.checkForUpdates(requireActivity(), true)
-                        true
-                    }
-
             // 编解码与屏幕能力检测
             findPreference<Preference>("capability_diagnostic")!!.onPreferenceClickListener =
                     Preference.OnPreferenceClickListener {
@@ -5118,7 +5104,7 @@ class StreamSettings : AppCompatActivity() {
         // for remote sources so this page keeps its existing network resilience.
         val candidates = mutableListOf<String>().apply {
             add(target)
-            try { addAll(UpdateManager.buildProxiedUrls(target)) } catch (_: Exception) {}
+            try { addAll(GitHubProxyManager.buildProxiedUrls(target)) } catch (_: Exception) {}
         }.distinct()
 
         tryCachedThenNetwork(imageView, options, candidates, 0)
@@ -5161,7 +5147,7 @@ class StreamSettings : AppCompatActivity() {
     ) {
         Thread {
             // 代理列表可能在调用前还未就绪，需要刷新一次
-            UpdateManager.ensureProxyListUpdated(this)
+            GitHubProxyManager.ensureProxyListUpdated(this)
             val candidates = preBuiltCandidates.orEmpty()
             for (url in candidates) {
                 try {

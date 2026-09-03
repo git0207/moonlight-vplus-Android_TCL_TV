@@ -432,8 +432,6 @@
     <string name="about_dialog_github">GitHub</string>
     <string name="about_dialog_qq">Entrar no grupo QQ</string>
     <string name="about_dialog_close">Fechar</string>
-    <string name="check_for_updates">Verificar atualizações</string>
-    <string name="summary_check_for_updates">Verificar se há uma nova versão disponível</string>
     
     <!-- Toasts -->
     <string name="toast_controller_type_changed">O tipo de gamepad pode ter mudado devido à emulação do sensor de movimento</string>

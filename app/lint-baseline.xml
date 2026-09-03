@@ -557,39 +557,6 @@
     </issue>
 
     <issue
-        id="DefaultLocale"
-        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
-        errorLine1="                                    val downloadedMB = String.format(&quot;%.1f&quot;, bytesDownloaded / 1048576.0)"
-        errorLine2="                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/com/limelight/utils/UpdateManager.kt"
-            line="626"
-            column="56"/>
-    </issue>
-
-    <issue
-        id="DefaultLocale"
-        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
-        errorLine1="                                    val totalMB = String.format(&quot;%.1f&quot;, bytesTotal / 1048576.0)"
-        errorLine2="                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/com/limelight/utils/UpdateManager.kt"
-            line="627"
-            column="51"/>
-    </issue>
-
-    <issue
-        id="DefaultLocale"
-        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
-        errorLine1="                                    val downloadedMB = String.format(&quot;%.1f&quot;, bytesDownloaded / 1048576.0)"
-        errorLine2="                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/com/limelight/utils/UpdateManager.kt"
-            line="631"
-            column="56"/>
-    </issue>
-
-    <issue
         id="InconsistentLayout"
         message="The id &quot;settings_menu_toggle&quot; in layout &quot;activity_stream_settings&quot; is missing from the following layout configurations: layout-land (present in layout)"
         errorLine1="                android:id=&quot;@+id/settings_menu_toggle&quot;"
@@ -13142,17 +13109,6 @@
             file="src/main/java/com/limelight/binding/input/advance_setting/superpage/NumberSeekbar.kt"
             line="113"
             column="36"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
-        errorLine1="            version.text = &quot;v$curVer → v${updateInfo.version}&quot;"
-        errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/com/limelight/utils/UpdateManager.kt"
-            line="383"
-            column="28"/>
     </issue>
 
     <issue

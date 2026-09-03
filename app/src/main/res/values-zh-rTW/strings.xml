@@ -525,7 +525,6 @@
     <string name="sponsor_qr_saved_open_wechat_hint">QR code 已儲存，開啟微信後選擇「掃一掃 → 相簿」</string>
     <string name="sponsor_open_wechat">開啟微信</string>
     <string name="sponsor_wechat_not_installed">尚未安裝微信</string>
-    <string name="toast_update_integrity_mismatch">更新下載內容不是有效安裝包，請切換網路或使用瀏覽器下載。</string>
     <string name="wheel_alignment_title">對齊方式</string>
     <string name="wheel_alignment_center">分區中線朝上</string>
     <string name="wheel_alignment_edge">分區邊線朝上</string>
@@ -808,8 +807,6 @@
     <string name="title_config_sync_select_directory">備份資料夾</string>
     <string name="title_config_sync_import_external_snapshot">從資料夾還原最新備份</string>
     <string name="summary_config_sync_import_external_snapshot">先預覽所選資料夾中的備份，再決定是否還原。</string>
-    <string name="check_for_updates">檢查更新</string>
-    <string name="summary_check_for_updates">檢查是否有新的 Moonlight V+ 版本。</string>
     <string name="title_moonlight_vplus_pc_download">下載 Moonlight V+ 電腦版</string>
     <string name="suffix_seekbar_flat_region_pixels">像素</string>
     <string name="suffix_enhanced_touch_zone_divider">%</string>

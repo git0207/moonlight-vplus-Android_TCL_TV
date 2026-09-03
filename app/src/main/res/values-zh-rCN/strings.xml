@@ -643,8 +643,6 @@
     <string name="about_dialog_close">关闭</string>
     <string name="about_dialog_no_browser">未找到可用的外部浏览器</string>
     <string name="about_dialog_choose_browser">选择浏览器打开</string>
-    <string name="check_for_updates">检查更新</string>
-    <string name="summary_check_for_updates">检查是否有新版本可用。</string>
     <string name="category_help">帮助</string>
     <string name="category_connection_settings">连接</string>
     <string name="title_setup_guide">安装向导</string>
@@ -1509,39 +1507,6 @@
     <string name="toast_pan_zoom_disabled">已关闭平移/缩放</string>
     <string name="toast_pan_zoom_enabled">已开启平移/缩放</string>
     <string name="toast_super_command_error">发送超级命令时发生错误: %s</string>
-    <string name="toast_install_permission_denied">未获得安装权限，下载已取消</string>
-    <string name="toast_check_update_failed">检查更新失败，请稍后重试</string>
-    <string name="toast_already_latest_version">已是最新版本 v%s</string>
-    <string name="update_already_latest_title">已是最新版本</string>
-    <string name="update_btn_got_it">知道了</string>
-    <string name="update_new_version_title">发现新版本</string>
-    <string name="update_btn_browser_download">浏览器下载</string>
-    <string name="update_btn_direct_download">直接下载</string>
-    <string name="toast_cannot_get_install_permission">无法获得安装权限</string>
-    <string name="update_btn_later">稍后</string>
-    <string name="toast_update_skipped_version">已跳过 v%s。手动点“检查更新”可重新根据提醒。</string>
-    <string name="toast_update_sha256_mismatch">更新文件完整性校验失败（SHA256 不匹配），为安全已中止安装。</string>
-    <string name="toast_check_update_in_progress">正在检查中，请稍候…</string>
-    <string name="toast_need_install_permission">需要安装权限才能自动安装更新</string>
-    <string name="update_install_permission_title">需要安装权限</string>
-    <string name="update_install_permission_msg">为了自动安装更新，需要授予应用安装权限。\n\n点击确定前往设置页面开启权限，返回后将自动开始下载。</string>
-    <string name="toast_cannot_open_settings">无法打开设置页面</string>
-    <string name="toast_download_service_unavailable">系统下载服务不可用</string>
-    <string name="update_download_notification_title">Moonlight V+ 更新下载</string>
-    <string name="toast_download_started">已开始下载，下载完成后点击通知栏即可安装</string>
-    <string name="toast_download_failed">下载失败: %s</string>
-    <string name="update_downloading_title">正在下载更新</string>
-    <string name="update_btn_background">后台下载</string>
-    <string name="toast_download_continue_bg">下载将在后台继续，完成后会通知您</string>
-    <string name="update_progress_downloaded">已下载 %s MB</string>
-    <string name="update_progress_waiting">等待下载...</string>
-    <string name="update_progress_paused">下载已暂停</string>
-    <string name="update_progress_installing">下载完成，正在准备安装...</string>
-    <string name="update_progress_switching_source">正在切换下载源...</string>
-    <string name="toast_all_sources_failed">所有下载源均失败，请稍后重试</string>
-    <string name="toast_download_failed_try_browser">下载失败，请稍后重试或使用浏览器下载</string>
-    <string name="toast_cannot_get_download_file">无法获取下载文件，请在下载目录中手动安装</string>
-    <string name="toast_install_launch_failed">启动安装失败，请在下载目录中手动安装</string>
     <string name="toast_external_display_disconnected">外接显示器已断开，切换到主屏幕</string>
     <string name="toast_switched_to_external_display">串流已切换到外接显示器, 若某些外接设备不能正常横屏显示，请翻滚主机。</string>
 
@@ -1971,7 +1936,6 @@
     <string name="sponsor_qr_saved_open_wechat_hint">二维码已保存，打开微信后选择「扫一扫 → 相册」</string>
     <string name="sponsor_open_wechat">打开微信</string>
     <string name="sponsor_wechat_not_installed">未安装微信</string>
-    <string name="toast_update_integrity_mismatch">更新下载内容不是有效安装包，请切换网络或使用浏览器下载。</string>
     <string name="iperf_output_title">测试输出</string>
     <string name="iperf_output_empty_hint">测试结果和详细日志将在这里显示。</string>
 

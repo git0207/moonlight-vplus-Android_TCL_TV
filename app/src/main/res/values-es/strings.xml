@@ -299,7 +299,6 @@
     <string name="category_crown_features">Área de Características Crown</string>
     <string name="category_enhanced_touch_settings">👆 Toque Multi-Punto Mejorado</string>
     <string name="category_screen_position_settings">Configuración de Pantalla</string>
-    <string name="check_for_updates">Buscar actualizaciones</string>
     <string name="copy_content">Copiar Contenido</string>
     <string name="copy_details">Copiar Detalles</string>
     <string name="copy_success">Contenido copiado al portapapeles</string>
@@ -434,7 +433,6 @@
     <string name="suffix_seekbar_mic_bitrate_kbps">kbps</string>
     <string name="summary_about_mode">Ver información de la aplicación y detalles del proyecto</string>
     <string name="summary_background_image_api">Ingresa una API de imagen de fondo personalizada, o una URL de imagen única. Deja vacío para ver imágenes aleatorias</string>
-    <string name="summary_check_for_updates">Verificar si hay una nueva versión disponible</string>
     <string name="summary_checkbox_enable_enhanced_touch">	</string>
     <string name="summary_checkbox_enable_esc_menu">Cuando está habilitado, presionar doble ESC abre el menú de retorno de transmisión, una sola presión de ESC se pasa al host</string>
     <string name="summary_checkbox_enable_keyboard_toggle_in_native_touch">	</string>

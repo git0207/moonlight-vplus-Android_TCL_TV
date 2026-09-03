@@ -70,7 +70,6 @@ import com.limelight.utils.ServerHelper
 import com.limelight.utils.ShortcutHelper
 import com.limelight.utils.SpinnerDialog
 import com.limelight.utils.UiHelper
-import com.limelight.utils.UpdateManager
 import com.squareup.seismic.ShakeDetector
 
 import kotlinx.coroutines.CancellationException
@@ -180,8 +179,6 @@ class PcView : Activity(), AdapterFragmentCallbacks, ShakeDetector.Listener, Eas
     // Constants
     companion object {
         private const val REFRESH_DEBOUNCE_DELAY = 150L
-        private const val STARTUP_UPDATE_CHECK_DELAY = 5000L
-        private const val STARTUP_DIALOG_GAP_DELAY = 250L
         private const val SHAKE_DEBOUNCE_INTERVAL = 3000L
         private const val MAX_DAILY_REFRESH = 7
         private const val VPN_PERMISSION_REQUEST_CODE = 101
@@ -231,8 +228,6 @@ class PcView : Activity(), AdapterFragmentCallbacks, ShakeDetector.Listener, Eas
     private var completeOnCreateCalled = false
     private var pendingSplashFadeIn = true
     private var backgroundSourceDialogShowing = false
-    private var startupUpdateCheckPending = false
-    private var startupUpdateCheckRan = false
     private var lastShakeTime = 0L
     private var activeSceneNumber: Int? = null
     private var pendingAddedComputerUuid: String? = null
@@ -505,9 +500,6 @@ class PcView : Activity(), AdapterFragmentCallbacks, ShakeDetector.Listener, Eas
 
         analyticsManager = AnalyticsManager.getInstance(this)
         analyticsManager?.logAppLaunch()
-        // 延后 5 秒再做更新检查，避免一打开 PcView 就被对话框打断浏览
-        scheduleStartupUpdateCheck()
-
         bindService(Intent(this, ComputerManagerService::class.java), serviceConnection,
             BIND_AUTO_CREATE
         )
@@ -1035,31 +1027,6 @@ class PcView : Activity(), AdapterFragmentCallbacks, ShakeDetector.Listener, Eas
         }
     }
 
-    private fun scheduleStartupUpdateCheck(delayMs: Long = STARTUP_UPDATE_CHECK_DELAY) {
-        refreshHandler.postDelayed({ runStartupUpdateCheckWhenIdle() }, delayMs)
-    }
-
-    private fun runStartupUpdateCheckWhenIdle() {
-        if (startupUpdateCheckRan || isFinishing || isDestroyed) {
-            return
-        }
-        if (backgroundSourceDialogShowing) {
-            startupUpdateCheckPending = true
-            return
-        }
-
-        startupUpdateCheckPending = false
-        startupUpdateCheckRan = true
-        UpdateManager.checkForUpdatesOnStartup(this)
-    }
-
-    private fun resumePendingStartupUpdateCheck() {
-        if (!startupUpdateCheckPending || backgroundSourceDialogShowing) {
-            return
-        }
-        scheduleStartupUpdateCheck(STARTUP_DIALOG_GAP_DELAY)
-    }
-
     /**
      * First-launch background source picker (issue #263).
      *
@@ -1110,7 +1077,6 @@ class PcView : Activity(), AdapterFragmentCallbacks, ShakeDetector.Listener, Eas
 
         dialog.setOnDismissListener {
             backgroundSourceDialogShowing = false
-            resumePendingStartupUpdateCheck()
         }
         backgroundSourceDialogShowing = true
         dialog.show()
@@ -3353,8 +3319,6 @@ class PcView : Activity(), AdapterFragmentCallbacks, ShakeDetector.Listener, Eas
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == VPN_PERMISSION_REQUEST_CODE && easyTierController != null) {
             easyTierController?.handleVpnPermissionResult(resultCode)
-        } else if (requestCode == UpdateManager.INSTALL_PERMISSION_REQUEST_CODE) {
-            UpdateManager.onInstallPermissionResult(this)
         }
     }
 
